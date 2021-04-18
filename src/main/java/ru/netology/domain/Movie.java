@@ -14,5 +14,4 @@ public class Movie {
     private String genre;
     private String imageUrl;
     private boolean premierTomorrow;
-
 }

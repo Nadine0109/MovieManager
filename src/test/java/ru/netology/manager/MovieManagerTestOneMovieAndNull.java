@@ -13,8 +13,8 @@ public class MovieManagerTestOneMovieAndNull {
         Movie first = new Movie(0, "Бладшот", "боевик", "link", false);
         manager.add(first);
 
-        Movie[] actual = manager.getAll();
-        Movie[] expected = new Movie[]{first, null, null, null, null, null, null, null, null, null};
+        Movie[] actual = manager.getFeed();
+        Movie[] expected = new Movie[]{first};
         assertArrayEquals(expected, actual);
     }
 
@@ -22,8 +22,8 @@ public class MovieManagerTestOneMovieAndNull {
     void shouldGetNoMoviesForFeed() {
         MovieManager manager = new MovieManager();
 
-        Movie[] actual = manager.getAll();
-        Movie[] expected = new Movie[]{null, null, null, null, null, null, null, null, null, null};
+        Movie[] actual = manager.getFeed();
+        Movie[] expected = new Movie[]{};
         assertArrayEquals(expected, actual);
     }
 }

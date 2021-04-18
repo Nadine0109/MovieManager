@@ -4,13 +4,8 @@ import ru.netology.domain.Movie;
 
 public class MovieManager {
     private Movie[] movies = new Movie[0];
-    int feedSize = 10;
-    Movie[] feed = new Movie[feedSize];
+    private int feedSize = 10;
 
-    {
-        for (int i = 0; i < feedSize; i++)
-            feed[i] = new Movie();
-    }
 
     public void add(Movie movie) {
         int length = movies.length + 1;
@@ -22,13 +17,33 @@ public class MovieManager {
     }
 
     public Movie[] getAll() {
-        Movie[] result = new Movie[feed.length];
+        Movie[] result = new Movie[movies.length];
 
-        for (int i = 0; i < movies.length; i++) {
+        for (int i = 0; i < result.length; i++) {
             int index = movies.length - i - 1;
             result[i] = movies[index];
         }
-
         return result;
+    }
+
+    public Movie[] getFeed() {
+
+        Movie[] feed = new Movie[feedSize];
+
+        if (movies.length < feedSize) {
+            feed = getAll();
+        } else {
+            for (int i = 0; i < feed.length; i++) {
+
+                System.arraycopy(movies, 0, feed, 0, feed.length);
+
+            }
+            for (int i = 0; i < feed.length; i++) {
+                int index = movies.length - i - 1;
+                feed[i] = movies[index];
+            }
+
+        }
+        return feed;
     }
 }
