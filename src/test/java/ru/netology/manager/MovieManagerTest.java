@@ -10,8 +10,6 @@ import ru.netology.manager.MovieManager;
 
 public class MovieManagerTest {
     private MovieManager manager = new MovieManager();
-
-
     private Movie first = new Movie(0, "Бладшот", "боевик", "link", false);
     private Movie second = new Movie(1, "Вперёд", "мульфильм", "link", false);
     private Movie third = new Movie(2, "Отель 'Белград'", "комедия", "link", false);

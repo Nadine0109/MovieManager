@@ -1,15 +1,13 @@
 package ru.netology.manager;
 
-
 import lombok.Data;
 import ru.netology.domain.Movie;
 
 @Data
 
 public class MovieManager {
-
-    private Movie[] movies = new Movie[0];
     private int feedSize;
+    private Movie[] movies = new Movie[0];
 
     public MovieManager() {
         this.feedSize = getFeedSize();
@@ -20,7 +18,6 @@ public class MovieManager {
     {
         setFeedSize(10);
     }
-
 
     public void add(Movie movie) {
         int length = movies.length + 1;
