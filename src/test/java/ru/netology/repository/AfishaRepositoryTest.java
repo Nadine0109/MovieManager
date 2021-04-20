@@ -1,9 +1,11 @@
 package ru.netology.repository;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Movie;
 import ru.netology.manager.AfishaManager;
 import ru.netology.repository.AfishaRepository;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -36,10 +38,11 @@ class AfishaRepositoryTest {
         repository.save(ninth);
         repository.save(tenth);
     }
+
     @Test
     void findAll() {
         Movie[] actual = repository.findAll();
-        Movie[] expected= new Movie[] {first, second, third, forth, fifth, sixth, seventh, eighth, ninth, tenth};
+        Movie[] expected = new Movie[]{first, second, third, forth, fifth, sixth, seventh, eighth, ninth, tenth};
         assertArrayEquals(expected, actual);
     }
 
@@ -48,7 +51,7 @@ class AfishaRepositoryTest {
         int id = 7;
         Movie actual = repository.findById(id);
         Movie expected = new Movie(7, "Хабр", "триллер", "link", false);
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
 
     }
 
@@ -56,7 +59,7 @@ class AfishaRepositoryTest {
     void removeById() {
         int idToRemove = 2;
         Movie[] actual = repository.removeById(idToRemove);
-        Movie[] expected = new Movie[] {first, second, forth, fifth, sixth, seventh, eighth, ninth, tenth};
+        Movie[] expected = new Movie[]{first, second, forth, fifth, sixth, seventh, eighth, ninth, tenth};
         assertArrayEquals(expected, actual);
     }
 

@@ -1,37 +1,37 @@
 package ru.netology.manager;
+
 import ru.netology.domain.Movie;
 import ru.netology.repository.AfishaRepository;
 
 public class AfishaManager {
 
-        private AfishaRepository repository;
-        private int feedSize =10;
+    private AfishaRepository repository;
+    private int feedSize = 10;
 
-        public AfishaManager(AfishaRepository repository) {
-            this.repository = repository;
-        }
-
-    public AfishaManager() {
-
+    public AfishaManager(AfishaRepository repository) {
+        this.repository = repository;
     }
 
-    public void add (Movie movie) {
-            repository.save(movie);
-        }
+    public AfishaManager() {
+    }
 
-        public Movie[] getAll() {
-            Movie[] movies = repository.findAll();
-            Movie[] result = new Movie[movies.length];
-            for (int i = 0; i < result.length; i++) {
-                int index = movies.length - i - 1;
-                result[i] = movies[index];
-            }
-            return result;
+    public void add(Movie movie) {
+        repository.save(movie);
+    }
+
+    public Movie[] getAll() {
+        Movie[] movies = repository.findAll();
+        Movie[] result = new Movie[movies.length];
+        for (int i = 0; i < result.length; i++) {
+            int index = movies.length - i - 1;
+            result[i] = movies[index];
         }
+        return result;
+    }
 
     public Movie[] getFeed() {
-            Movie[] movies = repository.findAll();
-            Movie[] feed = new Movie[feedSize];
+        Movie[] movies = repository.findAll();
+        Movie[] feed = new Movie[feedSize];
 
         if (movies.length < feedSize) {
             feed = getAll();
@@ -49,7 +49,7 @@ public class AfishaManager {
         return feed;
     }
 
-        public void removeById(int idToRemove) {
-            repository.removeById(idToRemove);
-        }
+    public void removeById(int idToRemove) {
+        repository.removeById(idToRemove);
+    }
 }

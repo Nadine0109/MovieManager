@@ -1,4 +1,5 @@
 package ru.netology.manager;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -7,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.netology.domain.Movie;
 import ru.netology.repository.AfishaRepository;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -80,6 +82,7 @@ public class AfishaManagerFullTest {
         Movie[] expected = new Movie[]{forth, third, second, first};
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void shouldGetOneMovieForFeed() {
         Movie[] returned = new Movie[]{first};
