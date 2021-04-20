@@ -1,10 +1,25 @@
 package ru.netology.manager;
 
+
+import lombok.Data;
 import ru.netology.domain.Movie;
 
+@Data
+
 public class MovieManager {
+
     private Movie[] movies = new Movie[0];
-    private int feedSize = 10;
+    private int feedSize;
+
+    public MovieManager() {
+        this.feedSize = getFeedSize();
+    }
+
+    private Movie[] feed = new Movie[feedSize];
+
+    {
+        setFeedSize(10);
+    }
 
 
     public void add(Movie movie) {
@@ -27,22 +42,13 @@ public class MovieManager {
     }
 
     public Movie[] getFeed() {
-
         Movie[] feed = new Movie[feedSize];
-
         if (movies.length < feedSize) {
             feed = getAll();
-        } else {
-            for (int i = 0; i < feed.length; i++) {
-
-                System.arraycopy(movies, 0, feed, 0, feed.length);
-
-            }
-            for (int i = 0; i < feed.length; i++) {
-                int index = movies.length - i - 1;
-                feed[i] = movies[index];
-            }
-
+        }
+        for (int i = 0; i < feed.length; i++) {
+            int index = movies.length - i - 1;
+            feed[i] = movies[index];
         }
         return feed;
     }
