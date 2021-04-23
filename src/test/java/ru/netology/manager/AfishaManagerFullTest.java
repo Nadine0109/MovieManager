@@ -57,7 +57,7 @@ public class AfishaManagerFullTest {
 
 
     @Test
-    void getFeed() {
+    void shouldGetTenMoviesForFeed() {
         Movie[] returned = new Movie[]{first, second, third, forth, fifth, sixth, seventh, eighth, ninth, tenth};
         doReturn(returned).when(repository).findAll();
         Movie[] actual = manager.getFeed();
