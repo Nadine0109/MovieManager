@@ -37,7 +37,7 @@ public class MovieManagerTest {
     }
 
     @Test
-    void shouldGetMoviesForFeed() {
+    void shouldGetTenMoviesForFeed() {
         manager.add(fifth);
         manager.add(sixth);
         manager.add(seventh);
@@ -50,7 +50,7 @@ public class MovieManagerTest {
     }
 
     @Test
-    void shouldGetMoviesForFeedAboveMax() {
+    void shouldGetTenMoviesForFeedAboveMax() {
         manager.add(fifth);
         manager.add(sixth);
         manager.add(seventh);
